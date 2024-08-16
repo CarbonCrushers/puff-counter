@@ -20,7 +20,7 @@ export default function SplashPageLayout({
           </div>
         </nav>
       </header>
-      <main className="flex grow flex-col px-6">
+      <main className="flex grow px-6">
         <ConvexClientProvider>{children}</ConvexClientProvider>
       </main>
       <footer className="border-t">
