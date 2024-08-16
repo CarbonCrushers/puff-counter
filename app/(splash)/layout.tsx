@@ -10,17 +10,17 @@ export default function SplashPageLayout({
 }) {
   return (
     <div className="flex min-h-screen w-full flex-col">
-      <header className="sticky top-0 z-10 flex h-20 border-b bg-background/80 px-4 backdrop-blur md:px-6">
-        <nav className="container hidden w-full justify-between gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
+      <header className="sticky top-0 z-10 flex h-20 border-b bg-background/80 px-6 backdrop-blur">
+        <nav className="px-8 w-full justify-between gap-6 md:text-lg font-medium flex flex-row items-center md:gap-5 text-sm lg:gap-6">
           <Link href="/">
-            <h1 className="text-base font-semibold">Puff Counter</h1>
+            <h1 className="text-2xl font-semibold">Puff Counter</h1>
           </Link>
           <div className="flex items-center gap-4">
             <SplashPageNav />
           </div>
         </nav>
       </header>
-      <main className="flex grow flex-col">
+      <main className="flex grow flex-col px-6">
         <ConvexClientProvider>{children}</ConvexClientProvider>
       </main>
       <footer className="border-t">
@@ -66,7 +66,25 @@ function SplashPageNav() {
         href="/Strains"
         className="text-muted-foreground transition-colors hover:text-foreground"
       >
-        <Button>Get Started</Button>
+        Strains
+      </Link>
+      <Link
+        href="/Origins"
+        className="text-muted-foreground transition-colors hover:text-foreground"
+      >
+        Origins
+      </Link>
+      <Link
+        href="/Users"
+        className="text-muted-foreground transition-colors hover:text-foreground"
+      >
+        Users
+      </Link>
+      <Link
+        href="/Consumption"
+        className="text-muted-foreground transition-colors hover:text-foreground"
+      >
+        Consumption
       </Link>
     </>
   );

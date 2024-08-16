@@ -14,9 +14,11 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as consumptionLog from "../consumptionLog.js";
 import type * as messages from "../messages.js";
 import type * as origins from "../origins.js";
 import type * as strains from "../strains.js";
+import type * as users from "../users.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -27,9 +29,11 @@ import type * as strains from "../strains.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  consumptionLog: typeof consumptionLog;
   messages: typeof messages;
   origins: typeof origins;
   strains: typeof strains;
+  users: typeof users;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

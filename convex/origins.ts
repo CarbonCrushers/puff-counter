@@ -9,3 +9,27 @@ export const list = query({
     return origins;
   },
 });
+
+export const add = mutation({
+  args: { name: v.string() },
+  handler: async (ctx, { name }) => {
+    // Add a new origin.
+    await ctx.db.insert("origins", { name });
+  },
+});
+
+export const update = mutation({
+  args: { id: v.id("origins"), name: v.string() },
+  handler: async (ctx, { id, name }) => {
+    // Update an origin.
+    await ctx.db.replace(id, { name });
+  },
+});
+
+export const remove = mutation({
+  args: { id: v.id("origins") },
+  handler: async (ctx, { id }) => {
+    // Remove an origin.
+    await ctx.db.delete(id);
+  },
+});
