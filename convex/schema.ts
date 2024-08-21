@@ -23,7 +23,7 @@ export default defineSchema({
     method: v.union(
       v.literal("Smoke"),
       v.literal("Bong"),
-      v.literal("Dag"),
+      v.literal("Dab"),
       v.literal("Edible"),
     ),
   }).index("byUserId", ["userId"]),
