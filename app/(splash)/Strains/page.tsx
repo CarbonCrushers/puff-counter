@@ -16,7 +16,7 @@ interface Strain {
   origin: Id<"origins"> | "";
 }
 
-export function Strains() {
+const Strains = () => {
   const [newStrain, setNewStrain] = useState<Strain>({
     name: "",
     imageUrl: "",
@@ -162,6 +162,6 @@ export function Strains() {
       </div>
     </div>
   );
-}
+};
 
 export default Strains;
