@@ -1,13 +1,24 @@
+"use client";
+
 import ConvexClientProvider from "@/components/ConvexClientProvider";
 import { Button } from "@/components/ui/button";
+import { SignIn } from "@/components/ui/signup-with-github";
 import Link from "next/link";
 import { ReactNode } from "react";
+import {
+  Authenticated,
+  Unauthenticated,
+  AuthLoading,
+  useConvexAuth,
+} from "convex/react";
 
 export default function SplashPageLayout({
   children,
 }: {
   children: ReactNode;
 }) {
+  const { isAuthenticated } = useConvexAuth();
+  console.log("SplashPageLayout", isAuthenticated);
   return (
     <div className="flex min-h-screen w-full flex-col">
       <header className="sticky top-0 z-10 flex h-20 border-b bg-background/80 px-6 backdrop-blur">
@@ -16,13 +27,17 @@ export default function SplashPageLayout({
             <h1 className="text-2xl font-semibold">Puff Counter</h1>
           </Link>
           <div className="flex items-center gap-4">
-            <SplashPageNav />
+            {isAuthenticated ? `Hello!` : "Not looged in."}
+            <Unauthenticated>
+              <SignIn />
+            </Unauthenticated>
+            <Authenticated>
+              <SplashPageNav />
+            </Authenticated>
           </div>
         </nav>
       </header>
-      <main className="flex grow px-6">
-        <ConvexClientProvider>{children}</ConvexClientProvider>
-      </main>
+      <main className="flex grow px-6">{children}</main>
       <footer className="border-t">
         <div className="container py-4 text-center text-sm leading-loose">
           Built with ❤️ at{" "}
