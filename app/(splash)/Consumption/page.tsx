@@ -16,7 +16,7 @@ interface ConsumptionType {
   method: "Smoke" | "Bong" | "Dab" | "Edible";
 }
 
-export function Consumption() {
+function Consumption() {
   const users = useQuery(api.users.list);
   const consumptionLogs = useQuery(api.consumptionLog.list);
   const strains = useQuery(api.strains.list);
